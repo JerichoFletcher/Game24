@@ -3,6 +3,8 @@ package game24.struct;
 public enum Operator{
     plus, min, mult, div;
 
+    public static Operator[] all = {plus, min, mult, div};
+
     public float eval(float a, float b){
         return switch(this){
             case plus -> a + b;
@@ -17,7 +19,7 @@ public enum Operator{
         return switch(this){
             case plus -> "+";
             case min -> "-";
-            case mult -> "×";
+            case mult -> "*";
             case div -> "/";
         };
     }

@@ -1,5 +1,7 @@
 package game24.struct;
 
+import game24.util.*;
+
 public class Solution{
     float a, b, c, d;
     Operator op1, op2, op3;
@@ -14,16 +16,16 @@ public class Solution{
     */
 
     /* *** KONSTRUKTOR *** */
-    public Solution(float val1, float val2, float val3, float val4, Operator op1, Operator op2, Operator op3, byte p){
+    public Solution(float[] vals, Operator[] ops, byte p){
         if(p < 1 || 5 < p)throw new IllegalArgumentException("Konfigurasi kurung invalid");
 
-        a = val1;
-        b = val2;
-        c = val3;
-        d = val4;
-        this.op1 = op1;
-        this.op2 = op2;
-        this.op3 = op3;
+        a = vals[0];
+        b = vals[1];
+        c = vals[2];
+        d = vals[3];
+        op1 = ops[0];
+        op2 = ops[1];
+        op3 = ops[2];
         parentheses = p;
     }
 
@@ -41,14 +43,18 @@ public class Solution{
     @Override
     public String toString(){
         String fmt = switch(parentheses){
-            case 1 -> "(%d %s %d) %s (%d %s %d)";
-            case 2 -> "((%d %s %d) %s %d) %s %d";
-            case 3 -> "(%d %s (%d %s %d)) %s %d";
-            case 4 -> "%d %s ((%d %s %d) %s %d)";
-            case 5 -> "%d %s (%d %s (%d %s %d))";
+            case 1 -> "(%s %s %s) %s (%s %s %s)";
+            case 2 -> "((%s %s %s) %s %s) %s %s";
+            case 3 -> "(%s %s (%s %s %s)) %s %s";
+            case 4 -> "%s %s ((%s %s %s) %s %s)";
+            case 5 -> "%s %s (%s %s (%s %s %s))";
             default -> throw new IllegalArgumentException("Konfigurasi kurung invalid");
         };
 
-        return String.format(fmt, a, op1.toString(), b, op2.toString(), c, op3.toString(), d);
+        return String.format(fmt,
+            Convert.valueToCard((int)a), op1.toString(),
+            Convert.valueToCard((int)b), op2.toString(),
+            Convert.valueToCard((int)c), op3.toString(),
+            Convert.valueToCard((int)d));
     }
 }
