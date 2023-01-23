@@ -30,26 +30,27 @@ public class Solution{
     }
 
     public float eval(){
-        return switch(parentheses){
-            case 1 -> op2.eval(op1.eval(a, b), op3.eval(c, d));
-            case 2 -> op3.eval(op2.eval(op1.eval(a, b), c), d);
-            case 3 -> op3.eval(op1.eval(a, op2.eval(b, c)), d);
-            case 4 -> op1.eval(a, op3.eval(op2.eval(b, c), d));
-            case 5 -> op1.eval(a, op2.eval(b, op3.eval(c, d)));
-            default -> throw new IllegalArgumentException("Konfigurasi kurung invalid");
-        };
+        switch(parentheses){
+            case 1: return op2.eval(op1.eval(a, b), op3.eval(c, d));
+            case 2: return op3.eval(op2.eval(op1.eval(a, b), c), d);
+            case 3: return op3.eval(op1.eval(a, op2.eval(b, c)), d);
+            case 4: return op1.eval(a, op3.eval(op2.eval(b, c), d));
+            case 5: return op1.eval(a, op2.eval(b, op3.eval(c, d)));
+            default: throw new IllegalArgumentException("Konfigurasi kurung invalid");
+        }
     }
 
     @Override
     public String toString(){
-        String fmt = switch(parentheses){
-            case 1 -> "(%s %s %s) %s (%s %s %s)";
-            case 2 -> "((%s %s %s) %s %s) %s %s";
-            case 3 -> "(%s %s (%s %s %s)) %s %s";
-            case 4 -> "%s %s ((%s %s %s) %s %s)";
-            case 5 -> "%s %s (%s %s (%s %s %s))";
-            default -> throw new IllegalArgumentException("Konfigurasi kurung invalid");
-        };
+        String fmt = null;
+        switch(parentheses){
+            case 1: fmt = "(%s %s %s) %s (%s %s %s)"; break;
+            case 2: fmt = "((%s %s %s) %s %s) %s %s"; break;
+            case 3: fmt = "(%s %s (%s %s %s)) %s %s"; break;
+            case 4: fmt = "%s %s ((%s %s %s) %s %s)"; break;
+            case 5: fmt = "%s %s (%s %s (%s %s %s))"; break;
+            default: throw new IllegalArgumentException("Konfigurasi kurung invalid");
+        }
 
         return String.format(fmt,
             Convert.valueToCard((int)a), op1.toString(),

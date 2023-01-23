@@ -21,22 +21,22 @@ public class Convert{
     }
 
     public static float cardToValue(String card){
-        return switch(card){
-            case "A" -> 1f;
-            case "2" -> 2f;
-            case "3" -> 3f;
-            case "4" -> 4f;
-            case "5" -> 5f;
-            case "6" -> 6f;
-            case "7" -> 7f;
-            case "8" -> 8f;
-            case "9" -> 9f;
-            case "10" -> 10f;
-            case "J" -> 11f;
-            case "Q" -> 12f;
-            case "K" -> 13f;
-            default -> -1f;
-        };
+        switch(card){
+            case "A": return 1f;
+            case "2": return 2f;
+            case "3": return 3f;
+            case "4": return 4f;
+            case "5": return 5f;
+            case "6": return 6f;
+            case "7": return 7f;
+            case "8": return 8f;
+            case "9": return 9f;
+            case "10": return 10f;
+            case "J": return 11f;
+            case "Q": return 12f;
+            case "K": return 13f;
+            default: return -1f;
+        }
     }
 
     public static String valueToCard(float val){

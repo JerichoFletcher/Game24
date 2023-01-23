@@ -95,13 +95,13 @@ public class Game24{
             switch(inp){
                 case "Y":
                     // Simpan file
-                    System.out.print("Nama file: ");
+                    System.out.print("File: test/");
                     String filename = String.format("test/%s", in.nextLine());
                     if(!filename.endsWith(".txt"))filename = String.format("%s.txt", filename);
 
                     BufferedWriter writer = null;
                     try{
-                        writer = new BufferedWriter(new FileWriter(String.format("../%s", filename)));
+                        writer = new BufferedWriter(new FileWriter(filename));
                         for(Solution sol : solutions){
                             writer.write(sol.toString());
                             writer.newLine();
@@ -112,7 +112,7 @@ public class Game24{
                         System.out.println(e.toString());
                     }finally{
                         try{
-                            writer.close();   
+                            if(writer != null)writer.close();
                         }catch(IOException e){}
                     }
                 case "N":

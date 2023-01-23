@@ -1,4 +1,2 @@
 @echo off
-cd bin
-java game24/Game24
-cd ..
+java -jar ./bin/libs/Game24.jar

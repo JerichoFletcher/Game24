@@ -6,21 +6,21 @@ public enum Operator{
     public static Operator[] all = {plus, min, mult, div};
 
     public float eval(float a, float b){
-        return switch(this){
-            case plus -> a + b;
-            case min -> a - b;
-            case mult -> a * b;
-            case div -> a / b;
-        };
+        switch(this){
+            case plus: return a + b;
+            case min: return a - b;
+            case mult: return a * b;
+            default: return a / b;
+        }
     }
 
     @Override
     public String toString(){
-        return switch(this){
-            case plus -> "+";
-            case min -> "-";
-            case mult -> "*";
-            case div -> "/";
-        };
+        switch(this){
+            case plus: return "+";
+            case min: return "-";
+            case mult: return "*";
+            default: return "/";
+        }
     }
 }
