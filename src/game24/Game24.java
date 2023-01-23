@@ -17,8 +17,11 @@ public class Game24{
     public static void main(String[] args){
         in = new Scanner(System.in);
 
-        System.out.println("====== PERMAINAN KARTU 24 ======");
-        System.out.println("Masukkan input 4 kartu (format A B C D)");
+        System.out.println("/|---------------------------------------------------------------------------------------------------|\\");
+        System.out.println("||------------------------------------------   24 SOLVER   ------------------------------------------||");
+        System.out.println("\\|---------------------------------------------------------------------------------------------------|/");
+
+        System.out.println("\nMasukkan input 4 kartu (format A B C D)");
         System.out.println("Kartu merupakan salah satu dari: A 2 3 4 5 6 7 8 9 10 J Q K");
         System.out.println("Atau masukkan input R untuk menggunakan input acak");
         
@@ -81,9 +84,20 @@ public class Game24{
             System.out.println("Tidak ada solusi");
         }else{
             System.out.println(String.format("Ditemukan %d solusi sebagai berikut:", solutions.size()));
+
+            int col = 0;
+            StringBuilder str = new StringBuilder();
             for(Solution sol : solutions){
-                System.out.println(sol.toString());
+                if(col >= 4){
+                    str.append("\n");
+                    col = 0;
+                }else if(col != 0)str.append("     ");
+
+                str.append("  ");
+                str.append(sol.toString());
+                col++;
             }
+            System.out.println(str.toString());
         }
     }
 
