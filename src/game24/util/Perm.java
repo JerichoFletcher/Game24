@@ -8,8 +8,6 @@ public class Perm{
     static ArrayList<float[]> cards = new ArrayList<>(24);
     static Operator[][] ops;
 
-    static float[][] temp = new float[24][];
-
     public static ArrayList<float[]> permCard4(float[] vals){
         cards.clear();
         for(int i = 1; i <= 4; i++){

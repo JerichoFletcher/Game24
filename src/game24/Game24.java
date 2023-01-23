@@ -58,7 +58,7 @@ public class Game24{
         }while(!valid);
 
         // Tampilkan solusi
-        displaySolutions(solutions);
+        displaySolutions();
 
         // Simpan solusi yang ditemukan
         promptSaveResults();
@@ -79,7 +79,7 @@ public class Game24{
         elapsedNano = timeAfter - timeBefore;
     }
 
-    static void displaySolutions(ArrayList<Solution> solutions){
+    static void displaySolutions(){
         if(solutions.size() == 0){
             System.out.println("Tidak ada solusi");
         }else{

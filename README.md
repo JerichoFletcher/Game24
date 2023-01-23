@@ -1,8 +1,8 @@
-# 24 Solver
+# Game24
 
 _Author: Jericho Russel Sebastian (13521107)_
 
-24 Solver merupakan program pencari penyelesaian permainan Kartu 24 dengan menggunakan algoritma _brute force_. Program ini dibuat sebagai pemenuhan Tugas Kecil 1 mata kuliah IF2211 Strategi Algoritma.
+Game24 merupakan program pencari penyelesaian permainan Kartu 24 dengan menggunakan algoritma _brute force_. Program ini dibuat sebagai pemenuhan Tugas Kecil 1 mata kuliah IF2211 Strategi Algoritma.
 
 ## Table of Contents
 
